@@ -92,3 +92,11 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Cu
         view.startAnimation(animation);
     }
 }
+
+
+//para insertar
+
+/* animalsList.add(position,"" + itemLabel);
+mAdapter.notifyItemInserted(position);
+ // Scroll to newly added item position
+mRecyclerView.scrollToPosition(position);*/
