@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ApuestasAmerica</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="opcionesDialog">
+        <item>GrupoI</item>
+        <item>GrupoII</item>
+        <item>GrupoIII</item>
+    </string-array>
+    <string name="title_activity_main3">Main3Activity</string>
 </resources>

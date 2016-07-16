@@ -3,6 +3,8 @@ package com.example.user.apuestasamerica;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,7 +26,7 @@ import java.util.List;
 
 //comentario 2desde github
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FechaPickerDialog.ListenerOyente {
 
     private RecyclerView recyclerView;
 
@@ -43,7 +47,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         recyclerView = (RecyclerView) findViewById(R.id.lista);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayout=new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(linearLayout);
         String data[] = {"Argentina", "Bolivia", "Brazil", "Canada",
                 "Chile", "Colombia", "Cuba", "Estados Unidos",
                 "Mexico", "Peru", "Uruguay", "Venezuela",};
@@ -78,6 +84,24 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
+        Snackbar.make(getCurrentFocus(),"aaaaa",Snackbar.LENGTH_LONG).show();
         return true;
+    }
+
+    public void seleccionarFecha(View view) {
+        DialogFragment dialogFragment= new FechaPickerDialog();
+        dialogFragment.show(getSupportFragmentManager(),"date");
+    }
+
+    public void seleccionarHora(View view) {
+        DialogFragment dialogFragment= new TiempoPickerDialog();
+        dialogFragment.show(getSupportFragmentManager(),"time");
+    }
+
+    @Override
+    public void setearFecha(String fecha) {
+        Fragment fragment=getSupportFragmentManager().findFragmentByTag("custom");
+        TextView view=(TextView)((DialogFragment)fragment).getDialog().findViewById(R.id.txtFecha);
+        view.setText(fecha);
     }
 }

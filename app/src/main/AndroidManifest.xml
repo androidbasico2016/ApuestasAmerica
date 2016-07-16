@@ -18,21 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.user.librarylistview.ListaSimple">
-
-
-        </activity>
-
-        <activity android:name="com.example.user.librarylistview.ListaActivityConAdapterCustom">
-
-        </activity>
-
-        <activity android:name="com.example.user.librarylistview.ListaConExtends">
-
-        </activity>
+        <activity android:name="com.example.user.librarylistview.ListaSimple" />
+        <activity android:name="com.example.user.librarylistview.ListaActivityConAdapterCustom" />
+        <activity android:name="com.example.user.librarylistview.ListaConExtends" />
+        <activity android:name=".DetalleActivity" android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
-
 
 </manifest>
